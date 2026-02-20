@@ -1,14 +1,34 @@
 appId: com.dolphinanty.desktop
-productName: DolphinAntyDesktop
+productName: DolphinAnty Desktop
+copyright: Copyright © 2026
+
 directories:
   output: build
+
 win:
-  target: nsis
+  target:
+    - target: nsis
+      arch:
+        - x64
   icon: assets/icon.png
+
 nsis:
   oneClick: false
   allowToChangeInstallationDirectory: true
+  perMachine: false
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+
 files:
   - dist/**/*
   - assets/**/*
   - package.json
+  - "!node_modules/puppeteer/.local-chromium"
+
+extraResources:
+  - from: node_modules/puppeteer-core
+    to: puppeteer-core
+    filter:
+      - "**/*"
+
+asar: true

@@ -6,3 +6,7 @@ build/
 *.enc
 .DS_Store
 Thumbs.db
+*.log
+data/
+.vscode/
+!.vscode/settings.json
